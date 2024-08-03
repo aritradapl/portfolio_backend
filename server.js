@@ -28,6 +28,9 @@ connectDB();
 const apiRoutes = require("./routes/api");
 app.use("/api", apiRoutes); // API Route
 
+const adminRoutes = require("./routes/admin");
+app.use("/api/admin", adminRoutes); // Admin Route
+
 app.use((req, res, next) => {
   res.status(404).render("404", {
     layout: false,

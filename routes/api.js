@@ -8,7 +8,6 @@ var router = express.Router();
 const { response } = require("../config/response");
 
 // Controllers 
-const { register } = require('../controllers/api/auth/registerController');
 
 // Routes
 router.get('/', (req, res) => {
@@ -19,8 +18,5 @@ router.get('/', (req, res) => {
     }
 });
 
-router.group('/auth', (router) => {
-    router.post("/register", register);
-});
 
 module.exports = router;

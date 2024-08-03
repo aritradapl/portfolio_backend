@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Replace with your MongoDB connection string
-const dbURI = 'mongodb://localhost:27017/portfolio';
+const dbURI = process.env.DB_CONNECTION_URL || '';
 
 // Function to connect to the database
 const connectDB = async () => {

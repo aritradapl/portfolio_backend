@@ -12,7 +12,7 @@ const { response } = require("../../../config/response");
 const { generateAuthToken } = require('../../../config/auth');
 
 // Models
-const User = require("../../../models/User");
+const { User } = require("../../../models/User");
 
 const register = async (req, res) => {
     try {
@@ -69,7 +69,8 @@ const register = async (req, res) => {
         user.email = email;
         user.mobile = mobile;
         user.password = hashedPassword;
-        user.authToken = generateAuthToken({ id: user._id });
+        user.authToken = generateAuthToken({ user : user });
+        user.userType = 'admin';
         user.save();
 
         return response(res, user, "User registered successfully", 200);

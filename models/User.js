@@ -13,11 +13,31 @@ const userSchema = new mongoose.Schema({
   mobile: {
     type: String
   },
+  otp: {
+    type: String
+  },
+  otpExpired: {
+    type: Date
+  },
   password: {
     type: String,
     required: true
   },
+  passwordToken: {
+    type: String
+  },
+  passwordTokenExpired: {
+    type: Date
+  },
   authToken: {
+    type: String
+  },
+  userType: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  image: {
     type: String
   },
   status: {
@@ -36,4 +56,6 @@ const userSchema = new mongoose.Schema({
 // Create the model
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = {
+  User
+};
